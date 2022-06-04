@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add category</title>
+    <title>Edit category</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
@@ -29,21 +29,21 @@
         <main class="wrapper">
 
             <div class="form-category">
-                <form id="add-category">
+                <form id="edit-category">
                     <label for="category">Category:</label>
                     <input id="category" name="category" type="text">
-                    <button class="btn-primary" type="submit">Add new</button>
+                    
+                    <button class="btn-primary" type="submit">Edit</button>
+                    <a href="add-category.html">Cancel</a>
+
                 </form>  
             </div>
-            
-            <table id="table-categories">
-                <tbody></tbody>
-            </table>
-
+    
         </main>
     
     </div>
-    <script src="./Api/categories.js"></script>
+    <script src="./Api/categories.js"></script> 
     <script src="./App/categories.js"></script>
+    <script src="./Api/edit-category.js"></script>
 </body>
 </html>

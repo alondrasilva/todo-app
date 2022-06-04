@@ -38,8 +38,19 @@ body {
     border-radius: 20px;
     display: flex;
     padding: 60px;
+    align-items:center;
     justify-content: center;
-    flex-wrap: wrap;   
+    flex-direction: column;
+}
+
+.form-category {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#table-categories {
+    width:300px;
 }
 
 /* Navbar */

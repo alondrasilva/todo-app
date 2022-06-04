@@ -13,4 +13,6 @@ formAddCategory.addEventListener('submit', function (e) {
         body: JSON.stringify(payload)
     };
     fetch('https://todo-app-fae2a-default-rtdb.firebaseio.com/categories.json', createCategories);
+    // window.location.reload()
+    loadCategories();
 });

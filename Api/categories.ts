@@ -1,5 +1,3 @@
-
-
 const formAddCategory = document.getElementById('add-category')
 
 formAddCategory.addEventListener('submit', (e) => {
@@ -21,7 +19,9 @@ formAddCategory.addEventListener('submit', (e) => {
     
     fetch('https://todo-app-fae2a-default-rtdb.firebaseio.com/categories.json', createCategories)
 
+    // window.location.reload()
 
+    loadCategories()
 })
 
 
