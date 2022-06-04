@@ -92,37 +92,38 @@ form input {
 }
 
 form label {
-    margin-top:16px;
+    margin-top:5px;
+    padding: 5px 0px;
 }
 
-.form-group h4 {
+/* .form-group h4 {
     margin:30px;
 }
 
-/* .btn-group {
+.btn-group {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 33px;
-}
+} */
 
 .btn-primary {
-    width: 70px;
-    height:70px;
-    margin: 10px;
+    width: 150px;
+    height: 34px;
+    margin-top: 11px;
     font-weight: 500;
-    border-radius: 50%;
+    border-radius: 20px;
     border:none;
     cursor: pointer;
-    font-size: 50px;
+    font-size: 17px;
+    align-self:center;
     background-color:#ffffff;
     color: #df691a;
     font-family: 'Plus Jakarta Sans', sans-serif;
-} */
+}
 
-/* .btn-primary:hover {
+.btn-primary:hover {
     background-color: #df691a;
-    box-shadow: 0px 5px 30px #dfbda6;
     color: #fff;
     transform: translateY(-2px);
 } 
@@ -144,7 +145,7 @@ form label {
 
 /* POSTS/TASKS */
 
-.posts {
+/* .posts {
     width: 200px;
     height: 200px;
     margin: 10px;
@@ -181,4 +182,4 @@ form label {
     top: 42%;
     left: 189px;
 }
-
+ */
