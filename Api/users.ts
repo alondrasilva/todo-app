@@ -1,5 +1,3 @@
-
-
 const formAddUsers = document.getElementById('add-user')
 
 formAddUsers.addEventListener('submit', (e) => {
@@ -23,5 +21,5 @@ formAddUsers.addEventListener('submit', (e) => {
     
     fetch('https://todo-app-fae2a-default-rtdb.firebaseio.com/users.json', createUsers)
 
-
+    loadUsers()
 })

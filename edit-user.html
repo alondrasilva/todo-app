@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasks</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
     <div class="container">
@@ -26,9 +27,27 @@
         </nav>
 
         <main class="wrapper">
-        
+
+            <form id="edit-user">
+                <label for="username">Username:</label>
+                <input id="username" name="username" type="text">
+
+                <label for="useremail">Email:</label>
+                <input id="useremail" name="useremail" type="email">
+
+                <!-- <label for="userpass">Password:</label>
+                <input id="userpass" name="userpass" type="password"> -->
+                                
+                <button class="btn-primary" type="submit">Edit</button>
+                <a class="btn-primary" href="add-category.html">Cancel</a>
+            </form>  
+
         </main>
     
     </div>
+
+    <script src="./Api/users.js"></script>  
+    <script src="./Api/edit-user.js"></script>
+
 </body>
 </html>
