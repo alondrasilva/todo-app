@@ -26,4 +26,5 @@ formEdit.addEventListener('submit', (e) => {
 
     fetch(`https://todo-app-fae2a-default-rtdb.firebaseio.com/categories/${category}.json`, options)
 
+    
 })

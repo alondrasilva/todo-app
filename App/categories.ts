@@ -26,9 +26,14 @@ const loadCategories = () => {
 
             const tdBtn = document.createElement('td')
             const btnDelete = document.createElement('button')
+            btnDelete.dataset.
+            // guardar en eldataset el id de la categoria
             btnDelete.textContent = 'Delete'
+            btnDelete.classList.add('btn-secondary')
+
             const btnEdit = document.createElement('a')
             btnEdit.textContent = 'Edit'
+            btnEdit.classList.add('btn-edit')
             btnEdit.setAttribute('href', `./edit-category.html?id=${prop}`)
 
             tdBtn.appendChild(btnDelete)
@@ -38,23 +43,27 @@ const loadCategories = () => {
             tableCategoriesBody.appendChild(tr)
 
             // Botón Eliminar categorías
-            btnDelete.addEventListener('click', (e) => {
-                e.preventDefault()
-
-
-                console.log(prop)
-
-                const deleteCategory = {
-                    method: 'DELETE'                  
-                }
-                
-                fetch(`https://todo-app-fae2a-default-rtdb.firebaseio.com/categories/${prop}.json`, deleteCategory)
-
-                window.location.reload()
-
-            })
+            btnDelete.addEventListener('click', deleteCategory)
         }
     })
+}
+
+const deleteCategory = async (e) => {
+    e.preventDefault()
+
+    const btn = e.target;
+
+    // de este boton tienen que obtener el data que definieron al generar el boton.
+
+
+    const deleteCategory = {
+        method: 'DELETE'                  
+    }
+    
+    await fetch(`https://todo-app-fae2a-default-rtdb.firebaseio.com/categories/${category}.json`, deleteCategory)
+
+    window.location.reload()
+
 }
 
 loadCategories()
