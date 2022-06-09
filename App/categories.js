@@ -43,6 +43,7 @@ var loadCategories = function () {
     fetch('https://todo-app-fae2a-default-rtdb.firebaseio.com/categories.json')
         .then(function (response) { return response.json(); })
         .then(function (data) {
+        console.log(data);
         tableCategoriesBody.innerText = "";
         for (var prop in data) {
             var tr = document.createElement('tr');
@@ -51,34 +52,37 @@ var loadCategories = function () {
                 var text = document.createTextNode(data[prop][key]);
                 td.appendChild(text);
                 tr.appendChild(td);
+                var tdBtn = document.createElement('td');
+                var btnDelete = document.createElement('button');
+                btnDelete.dataset.categoryid = "".concat(prop);
+                btnDelete.textContent = 'Delete';
+                btnDelete.classList.add('btn-secondary');
+                var btnEdit = document.createElement('a');
+                btnEdit.textContent = 'Edit';
+                btnEdit.classList.add('btn-edit');
+                btnEdit.setAttribute('href', "./edit-category.html?id=".concat(prop));
+                tdBtn.appendChild(btnDelete);
+                tdBtn.appendChild(btnEdit);
+                tr.appendChild(tdBtn);
+                tableCategoriesBody.appendChild(tr);
+                // Botón Eliminar categorías
+                btnDelete.addEventListener('click', deleteCategory);
             }
-            var tdBtn = document.createElement('td');
-            var btnDelete = document.createElement('button');
-            btnDelete.textContent = 'Delete';
-            btnDelete.classList.add('btn-secondary');
-            var btnEdit = document.createElement('a');
-            btnEdit.textContent = 'Edit';
-            btnEdit.classList.add('btn-edit');
-            btnEdit.setAttribute('href', "./edit-category.html?id=".concat(prop));
-            tdBtn.appendChild(btnDelete);
-            tdBtn.appendChild(btnEdit);
-            tr.appendChild(tdBtn);
-            tableCategoriesBody.appendChild(tr);
-            // Botón Eliminar categorías
-            btnDelete.addEventListener('click', deleteCategory);
         }
     });
 };
 var deleteCategory = function (e) { return __awaiter(_this, void 0, void 0, function () {
-    var deleteCategory;
+    var id, deleteCategory;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 e.preventDefault();
+                id = e.target.getAttribute("data-categoryid");
+                console.log(e.target.getAttribute("data-categoryid"));
                 deleteCategory = {
                     method: 'DELETE'
                 };
-                return [4 /*yield*/, fetch("https://todo-app-fae2a-default-rtdb.firebaseio.com/categories/".concat(prop, ".json"), deleteCategory)];
+                return [4 /*yield*/, fetch("https://todo-app-fae2a-default-rtdb.firebaseio.com/categories/".concat(id, ".json"), deleteCategory)];
             case 1:
                 _a.sent();
                 window.location.reload();

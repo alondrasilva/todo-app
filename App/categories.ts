@@ -11,6 +11,8 @@ const loadCategories = () => {
         .then(response => response.json())
         .then(data => {
 
+            console.log(data)
+
         tableCategoriesBody.innerText = ""    
 
         for(const prop in data) {
@@ -22,28 +24,27 @@ const loadCategories = () => {
 
                 td.appendChild(text)
                 tr.appendChild(td)
-            }
 
-            const tdBtn = document.createElement('td')
-            const btnDelete = document.createElement('button')
-            btnDelete.dataset.
-            // guardar en eldataset el id de la categoria
-            btnDelete.textContent = 'Delete'
-            btnDelete.classList.add('btn-secondary')
+                const tdBtn = document.createElement('td')
+                const btnDelete = document.createElement('button')
+                btnDelete.dataset.categoryid = `${prop}`
+                btnDelete.textContent = 'Delete'
+                btnDelete.classList.add('btn-secondary')
+    
+                const btnEdit = document.createElement('a')
+                btnEdit.textContent = 'Edit'
+                btnEdit.classList.add('btn-edit')
+                btnEdit.setAttribute('href', `./edit-category.html?id=${prop}`)
+    
+                tdBtn.appendChild(btnDelete)
+                tdBtn.appendChild(btnEdit)
 
-            const btnEdit = document.createElement('a')
-            btnEdit.textContent = 'Edit'
-            btnEdit.classList.add('btn-edit')
-            btnEdit.setAttribute('href', `./edit-category.html?id=${prop}`)
-
-            tdBtn.appendChild(btnDelete)
-            tdBtn.appendChild(btnEdit)
-
-            tr.appendChild(tdBtn)
+                tr.appendChild(tdBtn)
             tableCategoriesBody.appendChild(tr)
 
             // Botón Eliminar categorías
             btnDelete.addEventListener('click', deleteCategory)
+            }           
         }
     })
 }
@@ -51,16 +52,15 @@ const loadCategories = () => {
 const deleteCategory = async (e) => {
     e.preventDefault()
 
-    const btn = e.target;
+    const id = e.target.getAttribute("data-categoryid")
 
-    // de este boton tienen que obtener el data que definieron al generar el boton.
-
+    console.log(e.target.getAttribute("data-categoryid"))
 
     const deleteCategory = {
         method: 'DELETE'                  
     }
     
-    await fetch(`https://todo-app-fae2a-default-rtdb.firebaseio.com/categories/${category}.json`, deleteCategory)
+    await fetch(`https://todo-app-fae2a-default-rtdb.firebaseio.com/categories/${id}.json`, deleteCategory)
 
     window.location.reload()
 
