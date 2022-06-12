@@ -28,7 +28,7 @@ body {
     display: flex;
     justify-content: center;
     color: white;
-    margin: 10px;
+    margin: 60px;
     text-shadow: 5.2px 3.8px  #df691a;
 }
 
@@ -57,7 +57,6 @@ body {
 
 ul {
     display:flex;
-    margin:0px;
     justify-content: center;
 }
 
@@ -127,7 +126,7 @@ form label {
 .btn-primary {
     width: 150px;
     height: 34px;
-    margin-top: 11px;
+    margin-top: 25px;
     font-weight: 500;
     border-radius: 20px;
     border:none;
@@ -153,8 +152,10 @@ form label {
     font-weight: 500;
     border-radius: 20px;
     border:none;
+    text-align: center;
     cursor: pointer;
     font-size: 17px;
+    text-decoration: none;
     align-self:center;
     background-color:#ffffff;
     color: #df691a;

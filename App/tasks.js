@@ -87,30 +87,30 @@ var loadTasks = function () {
                 }
                 else if (key != 'title' && key != 'status') {
                     var p = document.createElement('p');
-                    var textP = document.createTextNode(data[prop][key]);
+                    var textP = document.createTextNode("".concat(key, ": ") + data[prop][key]);
                     card.appendChild(p);
                     p.appendChild(textP);
                 }
                 else if (key == 'status') {
                     if (data[prop][key] == 'pending') {
-                        var p2 = document.createElement('p');
-                        var textP2 = document.createTextNode(data[prop][key]);
-                        card.appendChild(p2);
-                        p2.appendChild(textP2);
+                        // const p2 = document.createElement('p')
+                        // const textP2 = document.createTextNode(data[prop][key])
+                        // card.appendChild(p2)
+                        // p2.appendChild(textP2)
                         divPending.appendChild(card);
                     }
                     else if (data[prop][key] == 'doing') {
-                        var p2 = document.createElement('p');
-                        var textP2 = document.createTextNode(data[prop][key]);
-                        card.appendChild(p2);
-                        p2.appendChild(textP2);
+                        // const p2 = document.createElement('p')
+                        // const textP2 = document.createTextNode(data[prop][key])
+                        // card.appendChild(p2)
+                        // p2.appendChild(textP2)
                         divDoing.appendChild(card);
                     }
                     else if (data[prop][key] == 'done') {
-                        var p2 = document.createElement('p');
-                        var textP2 = document.createTextNode(data[prop][key]);
-                        card.appendChild(p2);
-                        p2.appendChild(textP2);
+                        // const p2 = document.createElement('p')
+                        // const textP2 = document.createTextNode(data[prop][key])
+                        // card.appendChild(p2)
+                        // p2.appendChild(textP2)
                         divDone.appendChild(card);
                     }
                 }

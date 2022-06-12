@@ -1,5 +1,13 @@
 const formAddTask = document.getElementById('add-task')
 
+const getNameCategory = async (id) => {
+    let categoryName = ""
+    
+    await fetch('https://todo-app-fae2a-default-rtdb.firebaseio.com/categories.json')
+
+}
+
+
 formAddTask.addEventListener('submit', async (e) => {
     e.preventDefault()
 
@@ -9,7 +17,7 @@ formAddTask.addEventListener('submit', async (e) => {
         description: e.target.description.value,  
         // hay que pensar como traerse el ID en vez de solo el nombre del usuario, en ahorradas lo resolvimos
         user: e.target.users.value,
-        category: e.target.categories.value,
+        categoryId: e.target.categories.value,
         status: e.target.status.value
     }
 

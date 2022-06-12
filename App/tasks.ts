@@ -45,18 +45,6 @@ const loadCategoriesSelect = () => {
 loadCategoriesSelect()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 const divPending = document.getElementById('pending')
 const divDoing = document.getElementById('doing')
 const divDone = document.getElementById('done')
@@ -86,34 +74,34 @@ const loadTasks = () => {
 
                 } else if (key != 'title' && key != 'status') {
                     const p = document.createElement('p')
-                    const textP = document.createTextNode(data[prop][key])
+                    const textP = document.createTextNode(`${key}: `+ data[prop][key])
 
                     card.appendChild(p)
                     p.appendChild(textP)
             
                 } else if (key == 'status') {
                         if (data[prop][key] == 'pending') {
-                            const p2 = document.createElement('p')
-                            const textP2 = document.createTextNode(data[prop][key])
+                            // const p2 = document.createElement('p')
+                            // const textP2 = document.createTextNode(data[prop][key])
 
-                            card.appendChild(p2)
-                            p2.appendChild(textP2)
+                            // card.appendChild(p2)
+                            // p2.appendChild(textP2)
                             divPending.appendChild(card)
                     
                         } else if (data[prop][key] == 'doing') {
-                            const p2 = document.createElement('p')
-                            const textP2 = document.createTextNode(data[prop][key])
+                            // const p2 = document.createElement('p')
+                            // const textP2 = document.createTextNode(data[prop][key])
 
-                            card.appendChild(p2)
-                            p2.appendChild(textP2)
+                            // card.appendChild(p2)
+                            // p2.appendChild(textP2)
                             divDoing.appendChild(card)
 
                         } else if(data[prop][key] == 'done') {
-                            const p2 = document.createElement('p')
-                            const textP2 = document.createTextNode(data[prop][key])
+                            // const p2 = document.createElement('p')
+                            // const textP2 = document.createTextNode(data[prop][key])
 
-                            card.appendChild(p2)
-                            p2.appendChild(textP2)
+                            // card.appendChild(p2)
+                            // p2.appendChild(textP2)
                             divDone.appendChild(card)
 
                         }
