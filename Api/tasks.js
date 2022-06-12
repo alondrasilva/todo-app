@@ -36,6 +36,19 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 var formAddTask = document.getElementById('add-task');
+var getNameCategory = function (id) { return __awaiter(_this, void 0, void 0, function () {
+    var categoryName;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                categoryName = "";
+                return [4 /*yield*/, fetch('https://todo-app-fae2a-default-rtdb.firebaseio.com/categories.json')];
+            case 1:
+                _a.sent();
+                return [2 /*return*/];
+        }
+    });
+}); };
 formAddTask.addEventListener('submit', function (e) { return __awaiter(_this, void 0, void 0, function () {
     var payload, createTasks;
     return __generator(this, function (_a) {
@@ -48,7 +61,7 @@ formAddTask.addEventListener('submit', function (e) { return __awaiter(_this, vo
                     description: e.target.description.value,
                     // hay que pensar como traerse el ID en vez de solo el nombre del usuario, en ahorradas lo resolvimos
                     user: e.target.users.value,
-                    category: e.target.categories.value,
+                    categoryId: e.target.categories.value,
                     status: e.target.status.value
                 };
                 console.log(e.target);
