@@ -1,13 +1,13 @@
 const formAddCategory = document.getElementById('add-category')
 
-formAddCategory.addEventListener('submit', (e) => {
+formAddCategory.addEventListener('submit', async (e) => {
     e.preventDefault()
 
     const payload = {
         name: e.target.category.value
     }
 
-    console.log(payload)
+    // console.log(payload)
 
     const createCategories = {
         method: 'POST',
@@ -17,11 +17,11 @@ formAddCategory.addEventListener('submit', (e) => {
         body: JSON.stringify(payload)
     }
     
-    fetch('https://todo-app-fae2a-default-rtdb.firebaseio.com/categories.json', createCategories)
+    await fetch('https://todo-app-fae2a-default-rtdb.firebaseio.com/categories.json', createCategories)
 
-    // window.location.reload()
+    window.location.reload()
 
-    loadCategories()
+    // loadCategories()
 })
 
 

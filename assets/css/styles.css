@@ -86,7 +86,7 @@ a:hover {
 } */ 
 
 .navbar {
-    width: 100vw;
+    width: 100%;
 }
 
 /* LOGIN/USERS */
@@ -98,7 +98,7 @@ form {
     flex-direction: column;
 }
 
-form input {
+form input, select {
     width:250px;
     height:35px;
     border-radius: 10px;
@@ -157,14 +157,14 @@ form label {
     font-size: 17px;
     align-self:center;
     background-color:#ffffff;
-    color: #d4ae94;
+    color: #df691a;
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .btn-secondary a {
     /* padding: 20px; */
     text-decoration: none;
-    color: #d4ae94;
+    color: #df691a;
 }
 
 /* .notification { 
@@ -227,11 +227,52 @@ form label {
     background-color: blueviolet;
 } */
 
+.hr {
+    width:90%;
+    border-top: 1px solid #df691a;
+    margin-bottom:45px;
+}
+
 .btn-edit {
     margin-left: 10px;
     padding: 5px 15px;
     background-color: white;
     text-decoration: none;
-    color: #d4ae94;
+    color: #df691a;
     border-radius: 20px;
+}
+
+/* Tasks  */
+
+.types {
+    display:flex;
+    /* justify-content: space-around; */
+}
+
+.status {
+    width: 239px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.card-task {
+    width:200px;
+    background-color: #fad867;
+    margin: 10px;
+    color: rgb(75, 75, 75);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.buttons-card {
+    text-align: center;
+
+}
+
+td {
+    margin-left: 20px;
 }

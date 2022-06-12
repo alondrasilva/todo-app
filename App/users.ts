@@ -59,18 +59,19 @@ const loadUsers = () => {
             tableUserBody.appendChild(tr)
 
             //Botón Eliminar users
-            btnDelete.addEventListener('click', (e) => {
+            btnDelete.addEventListener('click', async (e) => {
                 e.preventDefault()
 
-                console.log(prop)
+                // console.log(prop)
 
                 const deleteUser = {
                     method: 'DELETE'                  
                 }
                 
-                fetch(`https://todo-app-fae2a-default-rtdb.firebaseio.com/users/${prop}.json`, deleteUser)
+                await fetch(`https://todo-app-fae2a-default-rtdb.firebaseio.com/users/${prop}.json`, deleteUser)
 
                 window.location.reload()
+
 
             })
         }

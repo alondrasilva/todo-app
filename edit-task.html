@@ -30,7 +30,7 @@
         </nav>
 
         <main class="wrapper">
-            <form id="add-task">
+            <form id="edit-task">
                 <label for="title">Title:</label>
                 <input id="title" name="title" type="text">
 
@@ -53,25 +53,15 @@
                     <option value="done">Done</option>
                 </select>
 
-                <button class="btn-primary" type="submit">Add new</button>
+                <button class="btn-primary" type="submit">Edit</button>
+                <a class="btn-primary" href="add-task.html">Cancel</a>
             </form>  
-            <hr class="hr">
-            <div class="types">
-                <div id="pending" class="status">
-                    <h4>Pending</h4>
-                </div>
-                <div id="doing" class="status">
-                    <h4>Doing</h4>
-                </div>
-                <div id="done" class="status">
-                    <h4>Done</h4>
-                </div>
-            </div>
+
 
         </main>
     
     </div>
     <script src="./Api/tasks.js"></script>
-    <script src="./App/tasks.js"></script>
+    <script src="./Api/edit-task.js"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@ fetch(`https://todo-app-fae2a-default-rtdb.firebaseio.com/users/${user}.json`)
         editUser.useremail.value = data.email
     })
 
-    editUser.addEventListener('submit', (e) => {    
+editUser.addEventListener('submit', async (e) => {    
     e.preventDefault()
 
     const payload = {
@@ -26,6 +26,7 @@ fetch(`https://todo-app-fae2a-default-rtdb.firebaseio.com/users/${user}.json`)
         body: JSON.stringify(payload)
     }
 
-    fetch(`https://todo-app-fae2a-default-rtdb.firebaseio.com/users/${user}.json`, options)
+    await fetch(`https://todo-app-fae2a-default-rtdb.firebaseio.com/users/${user}.json`, options)
+    window.location.href = window.location.pathname + "/../add-user.html"
 
 })

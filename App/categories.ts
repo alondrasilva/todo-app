@@ -14,7 +14,15 @@ const loadCategories = () => {
             console.log(data)
 
         tableCategoriesBody.innerText = ""    
+        const tHead = document.createElement('thead')
+        const trHead = document.createElement('tr')
+        const tdHead1 = document.createElement('td')
+        tdHead1.textContent = "Category"
 
+        tableCategories.appendChild(tHead)
+        tHead.appendChild(trHead)
+        trHead.appendChild(tdHead1)
+        
         for(const prop in data) {
             const tr = document.createElement('tr')
 

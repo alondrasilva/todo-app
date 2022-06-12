@@ -9,7 +9,7 @@ fetch(`https://todo-app-fae2a-default-rtdb.firebaseio.com/categories/${category}
         formEdit.category.value = data.name
     })
 
-formEdit.addEventListener('submit', (e) => {
+formEdit.addEventListener('submit', async (e) => {
     e.preventDefault()
 
     const payload = {
@@ -24,7 +24,7 @@ formEdit.addEventListener('submit', (e) => {
         body: JSON.stringify(payload)
     }
 
-    fetch(`https://todo-app-fae2a-default-rtdb.firebaseio.com/categories/${category}.json`, options)
+    await fetch(`https://todo-app-fae2a-default-rtdb.firebaseio.com/categories/${category}.json`, options)
 
-    
+    window.location.href = window.location.pathname + "/../add-category.html"
 })

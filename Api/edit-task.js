@@ -35,66 +35,46 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-var tableCategories = document.getElementById('table-categories');
-var tableCategoriesBody = tableCategories.querySelector('tbody');
+var formEdit = document.getElementById('edit-task');
 var params = new URLSearchParams(window.location.search);
-var category = params.get('id');
-var loadCategories = function () {
-    fetch('https://todo-app-fae2a-default-rtdb.firebaseio.com/categories.json')
-        .then(function (response) { return response.json(); })
-        .then(function (data) {
-        console.log(data);
-        tableCategoriesBody.innerText = "";
-        var tHead = document.createElement('thead');
-        var trHead = document.createElement('tr');
-        var tdHead1 = document.createElement('td');
-        tdHead1.textContent = "Category";
-        tableCategories.appendChild(tHead);
-        tHead.appendChild(trHead);
-        trHead.appendChild(tdHead1);
-        for (var prop in data) {
-            var tr = document.createElement('tr');
-            for (var key in data[prop]) {
-                var td = document.createElement('td');
-                var text = document.createTextNode(data[prop][key]);
-                td.appendChild(text);
-                tr.appendChild(td);
-                var tdBtn = document.createElement('td');
-                var btnDelete = document.createElement('button');
-                btnDelete.dataset.categoryid = "".concat(prop);
-                btnDelete.textContent = 'Delete';
-                btnDelete.classList.add('btn-secondary');
-                var btnEdit = document.createElement('a');
-                btnEdit.textContent = 'Edit';
-                btnEdit.classList.add('btn-edit');
-                btnEdit.setAttribute('href', "./edit-category.html?id=".concat(prop));
-                tdBtn.appendChild(btnDelete);
-                tdBtn.appendChild(btnEdit);
-                tr.appendChild(tdBtn);
-                tableCategoriesBody.appendChild(tr);
-                // Botón Eliminar categorías
-                btnDelete.addEventListener('click', deleteCategory);
-            }
-        }
-    });
-};
-var deleteCategory = function (e) { return __awaiter(_this, void 0, void 0, function () {
-    var id, deleteCategory;
+var task = params.get('id');
+fetch("https://todo-app-fae2a-default-rtdb.firebaseio.com/tasks/".concat(task, ".json"))
+    .then(function (response) { return response.json(); })
+    .then(function (data) {
+    formEdit.title.value = data.title;
+    formEdit.date.value = data.date;
+    formEdit.description.value = data.description;
+    formEdit.users.value = data.user;
+    formEdit.categories.value = data.category;
+    formEdit.status.value = data.status;
+    console.log(data);
+});
+formEdit.addEventListener('submit', function (e) { return __awaiter(_this, void 0, void 0, function () {
+    var payload, options;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 e.preventDefault();
-                id = e.target.getAttribute("data-categoryid");
-                console.log(e.target.getAttribute("data-categoryid"));
-                deleteCategory = {
-                    method: 'DELETE'
+                payload = {
+                    title: e.target.title.value,
+                    date: e.target.date.value,
+                    description: e.target.description.value,
+                    users: e.target.user.value,
+                    categories: e.target.category.value,
+                    status: e.target.status.value
                 };
-                return [4 /*yield*/, fetch("https://todo-app-fae2a-default-rtdb.firebaseio.com/categories/".concat(id, ".json"), deleteCategory)];
+                options = {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                };
+                return [4 /*yield*/, fetch("https://todo-app-fae2a-default-rtdb.firebaseio.com/tasks/".concat(task, ".json"), options)];
             case 1:
                 _a.sent();
-                window.location.reload();
+                window.location.href = window.location.pathname + "/../add-task.html";
                 return [2 /*return*/];
         }
     });
-}); };
-loadCategories();
+}); });

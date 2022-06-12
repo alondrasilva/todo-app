@@ -1,6 +1,6 @@
 const formAddUsers = document.getElementById('add-user')
 
-formAddUsers.addEventListener('submit', (e) => {
+formAddUsers.addEventListener('submit', async (e) => {
     e.preventDefault()
 
     const payload = {
@@ -19,7 +19,9 @@ formAddUsers.addEventListener('submit', (e) => {
         body: JSON.stringify(payload)
     }
     
-    fetch('https://todo-app-fae2a-default-rtdb.firebaseio.com/users.json', createUsers)
+    await fetch('https://todo-app-fae2a-default-rtdb.firebaseio.com/users.json', createUsers)
 
-    loadUsers()
+    // loadUsers()
+
+    // window.location.reload()
 })
