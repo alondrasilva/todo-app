@@ -52,12 +52,14 @@ var loadUsersSelect = function () {
     });
 };
 loadUsersSelect();
+// const params = new URLSearchParams(window.location.search)
 var selectCategory = document.getElementById('categories');
 var loadCategoriesSelect = function () {
     fetch('https://todo-app-fae2a-default-rtdb.firebaseio.com/categories.json')
         .then(function (response) { return response.json(); })
         .then(function (data) {
         for (var category in data) {
+            // params.set('idCategory', `${category}`)
             for (var name_2 in data[category]) {
                 var option = document.createElement('option');
                 option.textContent = data[category][name_2];
@@ -80,7 +82,7 @@ var loadTasks = function () {
             card.classList.add('card-task');
             for (var key in data[prop]) {
                 if (key == 'title') {
-                    var h6 = document.createElement('h6');
+                    var h6 = document.createElement('p');
                     var text = document.createTextNode("Title: ".concat(data[prop][key]));
                     card.appendChild(h6);
                     h6.appendChild(text);
@@ -123,7 +125,7 @@ var loadTasks = function () {
             var btnEdit = document.createElement('a');
             btnEdit.textContent = 'Edit';
             btnEdit.classList.add('btn-edit');
-            btnEdit.setAttribute('href', "./edit-task.html?id=".concat(prop));
+            btnEdit.setAttribute('href', "./edit-task.html?idTask=".concat(prop));
             buttons.appendChild(btnDelete);
             buttons.appendChild(btnEdit);
             card.appendChild(buttons);
