@@ -1,9 +1,9 @@
 const tableUser = document.getElementById('table-users')
 const tableUserBody = document.querySelector('tbody')
 
-const params = new URLSearchParams(window.location.search)
+// const params = new URLSearchParams(window.location.search)
 
-const user = params.get('id')
+// const user = params.get('id')
 
 const loadUsers = () => {
 

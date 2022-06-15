@@ -36,8 +36,42 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 var formEdit = document.getElementById('edit-task');
+var selectUsers = document.getElementById('users');
+var loadUsersSelect = function () {
+    fetch('https://todo-app-fae2a-default-rtdb.firebaseio.com/users.json')
+        .then(function (response) { return response.json(); })
+        .then(function (data) {
+        for (var users in data) {
+            for (var name_1 in data[users]) {
+                if (name_1 === 'name') {
+                    var option = document.createElement('option');
+                    option.textContent = data[users][name_1];
+                    option.setAttribute('value', "".concat(data[users][name_1]));
+                    selectUsers.appendChild(option);
+                }
+            }
+        }
+    });
+};
+loadUsersSelect();
+var selectCategory = document.getElementById('categories');
+var loadCategoriesSelect = function () {
+    fetch('https://todo-app-fae2a-default-rtdb.firebaseio.com/categories.json')
+        .then(function (response) { return response.json(); })
+        .then(function (data) {
+        for (var category in data) {
+            // params.set('idCategory', `${category}`)
+            for (var name_2 in data[category]) {
+                var option = document.createElement('option');
+                option.textContent = data[category][name_2];
+                selectCategory.appendChild(option);
+            }
+        }
+    });
+};
+loadCategoriesSelect();
 var params = new URLSearchParams(window.location.search);
-var task = params.get('id');
+var task = params.get('idTask');
 fetch("https://todo-app-fae2a-default-rtdb.firebaseio.com/tasks/".concat(task, ".json"))
     .then(function (response) { return response.json(); })
     .then(function (data) {
@@ -45,7 +79,7 @@ fetch("https://todo-app-fae2a-default-rtdb.firebaseio.com/tasks/".concat(task, "
     formEdit.date.value = data.date;
     formEdit.description.value = data.description;
     formEdit.users.value = data.user;
-    formEdit.categories.value = data.category;
+    formEdit.categories.value = data.categoryId;
     formEdit.status.value = data.status;
     console.log(data);
 });
@@ -59,8 +93,8 @@ formEdit.addEventListener('submit', function (e) { return __awaiter(_this, void 
                     title: e.target.title.value,
                     date: e.target.date.value,
                     description: e.target.description.value,
-                    users: e.target.user.value,
-                    categories: e.target.category.value,
+                    user: e.target.users.value,
+                    categoryId: e.target.categories.value,
                     status: e.target.status.value
                 };
                 options = {
