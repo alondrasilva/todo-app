@@ -22,6 +22,10 @@ const loadUsersSelect = () => {
 
 loadUsersSelect()
 
+// const params = new URLSearchParams(window.location.search)
+
+
+
 const selectCategory = document.getElementById('categories')
 
 const loadCategoriesSelect = () => {
@@ -31,6 +35,7 @@ const loadCategoriesSelect = () => {
         .then(data => {
            
             for(const category in data) {
+                // params.set('idCategory', `${category}`)
 
                 for(const name in data[category]) {
                         const option = document.createElement('option')
@@ -66,7 +71,7 @@ const loadTasks = () => {
 
                 if (key == 'title') {
 
-                    const h6 = document.createElement('h6')
+                    const h6 = document.createElement('p')
                     const text = document.createTextNode(`Title: ${data[prop][key]}`)
         
                     card.appendChild(h6)
@@ -81,27 +86,15 @@ const loadTasks = () => {
             
                 } else if (key == 'status') {
                         if (data[prop][key] == 'pending') {
-                            // const p2 = document.createElement('p')
-                            // const textP2 = document.createTextNode(data[prop][key])
-
-                            // card.appendChild(p2)
-                            // p2.appendChild(textP2)
+                        
                             divPending.appendChild(card)
                     
                         } else if (data[prop][key] == 'doing') {
-                            // const p2 = document.createElement('p')
-                            // const textP2 = document.createTextNode(data[prop][key])
-
-                            // card.appendChild(p2)
-                            // p2.appendChild(textP2)
+                            
                             divDoing.appendChild(card)
 
                         } else if(data[prop][key] == 'done') {
-                            // const p2 = document.createElement('p')
-                            // const textP2 = document.createTextNode(data[prop][key])
-
-                            // card.appendChild(p2)
-                            // p2.appendChild(textP2)
+                           
                             divDone.appendChild(card)
 
                         }
@@ -119,7 +112,7 @@ const loadTasks = () => {
                 const btnEdit = document.createElement('a')
                 btnEdit.textContent = 'Edit'
                 btnEdit.classList.add('btn-edit')
-                btnEdit.setAttribute('href', `./edit-task.html?id=${prop}`)
+                btnEdit.setAttribute('href', `./edit-task.html?idTask=${prop}`)
     
                 buttons.appendChild(btnDelete)
                 buttons.appendChild(btnEdit)

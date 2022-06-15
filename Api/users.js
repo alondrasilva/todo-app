@@ -55,12 +55,10 @@ formAddUsers.addEventListener('submit', function (e) { return __awaiter(_this, v
                     },
                     body: JSON.stringify(payload)
                 };
-                return [4 /*yield*/, fetch('https://todo-app-fae2a-default-rtdb.firebaseio.com/users.json', createUsers)
-                    // loadUsers()
-                    // window.location.reload()
-                ];
+                return [4 /*yield*/, fetch('https://todo-app-fae2a-default-rtdb.firebaseio.com/users.json', createUsers)];
             case 1:
                 _a.sent();
+                window.location.reload();
                 return [2 /*return*/];
         }
     });

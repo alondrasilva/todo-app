@@ -1,4 +1,5 @@
 const formEdit = document.getElementById('edit-category')
+
 const params = new URLSearchParams(window.location.search)
 
 const category = params.get('id')

@@ -21,7 +21,5 @@ formAddUsers.addEventListener('submit', async (e) => {
     
     await fetch('https://todo-app-fae2a-default-rtdb.firebaseio.com/users.json', createUsers)
 
-    // loadUsers()
-
-    // window.location.reload()
+     window.location.reload()
 })

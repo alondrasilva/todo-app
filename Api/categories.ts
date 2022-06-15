@@ -21,7 +21,7 @@ formAddCategory.addEventListener('submit', async (e) => {
 
     window.location.reload()
 
-    // loadCategories()
+    
 })
 
 
