@@ -41,6 +41,7 @@ body {
     align-items:center;
     justify-content: center;
     flex-direction: column;
+    margin-bottom:50px;
 }
 
 .form-category {
@@ -131,7 +132,9 @@ form label {
     border-radius: 20px;
     border:none;
     cursor: pointer;
+    text-decoration: none;
     font-size: 17px;
+    text-align: center;
     align-self:center;
     background-color:#ffffff;
     color: #df691a;
@@ -155,7 +158,6 @@ form label {
     text-align: center;
     cursor: pointer;
     font-size: 17px;
-    text-decoration: none;
     align-self:center;
     background-color:#ffffff;
     color: #df691a;
@@ -194,16 +196,6 @@ form label {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
 
-.posts textarea {
-    background-color: transparent;
-    padding: 10px;
-    border: none;
-    resize: none;
-    overflow: scroll;
-    outline: none;
-    font-size: 20px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-}
 
 .del-group, .edi-group {
     position: relative;
@@ -263,6 +255,7 @@ form label {
     width:200px;
     background-color: #fad867;
     margin: 10px;
+    font-size:14px;
     color: rgb(75, 75, 75);
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     border-radius: 10px;
@@ -276,4 +269,17 @@ form label {
 
 td {
     margin-left: 20px;
+}
+
+textarea {
+    background-color: white;
+    padding: 10px;
+    border: none;
+    resize: none;
+    overflow: scroll;
+    outline: none;
+    width: 250px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
